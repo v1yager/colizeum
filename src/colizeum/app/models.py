@@ -1,5 +1,5 @@
 import enum
-from datetime import date
+from datetime import date, datetime
 
 from sqlalchemy import (
     CheckConstraint,
@@ -8,6 +8,7 @@ from sqlalchemy import (
     SmallInteger,
     String,
     UniqueConstraint,
+    func,
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
@@ -16,8 +17,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 class AwardParticipationFormat(enum.Enum):
     PERSONAL = 0 # Индивидуальный
     TEAM = 1 # Командный
-    ONLINE = 2 # Онлайн
-    CERTIFICATE = 3 # Сертификат
+    CERTIFICATE = 2 # Сертификат
 
 # Масштаб достижения
 class AwardLevel(enum.Enum):
@@ -56,7 +56,7 @@ class Participant(Base):
     firstname: Mapped[str] = mapped_column(String(30), nullable=False)
     lastname: Mapped[str] = mapped_column(String(30), nullable=False)
     grade: Mapped[int] = mapped_column(SmallInteger, nullable=False)
-    registered_at: Mapped[date] = mapped_column(nullable=False)
+    registered_at: Mapped[date] = mapped_column(server_default=func.now())
 
 # Тип достижения (перестановка всех перечислений)
 class AwardType(Base):
@@ -95,4 +95,4 @@ class Achievement(Base):
         index=True
     )
     event: Mapped[str] = mapped_column(String(100), nullable=False)
-    received_at: Mapped[date] = mapped_column(nullable=False)
+    received_at: Mapped[datetime] = mapped_column(nullable=False)
