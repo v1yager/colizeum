@@ -39,7 +39,7 @@ class AwardPlace(enum.Enum):
 class Groups(enum.Enum):
     MIDDLE = "5-8" # Средняя школа
     HIGHER = "9-11" # Старшая школа
-    TOTAL = "5-11" # Все школа
+    TOTAL = "5-11" # Вся школа
 
 
 class Base(DeclarativeBase):
@@ -70,10 +70,10 @@ class AwardType(Base):
         Enum(AwardParticipationFormat, native_enum=False, length=30),
         nullable=False
     )
-    level: Mapped[AwardLevel] = mapped_column(
+    level: Mapped[AwardLevel | None] = mapped_column(
         Enum(AwardLevel, native_enum=False, length=30),
     )
-    place: Mapped[AwardPlace] = mapped_column(
+    place: Mapped[AwardPlace | None] = mapped_column(
         Enum(AwardPlace, native_enum=False, length=30),
     )
     points: Mapped[int] = mapped_column(nullable=False)
