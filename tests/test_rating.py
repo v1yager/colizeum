@@ -10,24 +10,24 @@ data = [
     {
         "group": Groups.MIDDLE,
         "expected": [
-            ("Sasha", "Petrov", 7, 25, 1),
-            ("Danil", "Semenov", 6, 15, 2)
+            (4, "Sasha", "Petrov", 7, 25, 1),
+            (3, "Danil", "Semenov", 6, 15, 2)
         ],
     },
     {
         "group": Groups.HIGHER,
         "expected": [
-            ("Dima", "Dmitrov", 9, 35, 1),
-            ("Ivan", "Ivanov", 11, 20, 2)
+            (2, "Dima", "Dmitrov", 9, 35, 1),
+            (1, "Ivan", "Ivanov", 11, 20, 2)
         ],
     },
     {
         "group": Groups.TOTAL,
         "expected": [
-            ("Dima", "Dmitrov", 9, 35, 1),
-            ("Sasha", "Petrov", 7, 25, 2),
-            ("Ivan", "Ivanov", 11, 20, 3),
-            ("Danil", "Semenov", 6, 15, 4)
+            (2, "Dima", "Dmitrov", 9, 35, 1),
+            (4, "Sasha", "Petrov", 7, 25, 2),
+            (1, "Ivan", "Ivanov", 11, 20, 3),
+            (3, "Danil", "Semenov", 6, 15, 4)
         ]
     },
 ]

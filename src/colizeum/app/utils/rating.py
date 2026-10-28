@@ -15,6 +15,7 @@ def get_group_interval(param: int, group: Groups):
 
 async def get_rating(session: AsyncSession, group: Groups):
     scores = (select(
+        Participant.id,
         Participant.firstname,
         Participant.lastname,
         Participant.grade,
@@ -29,6 +30,7 @@ async def get_rating(session: AsyncSession, group: Groups):
     rank_col = func.rank().over(order_by=desc(scores.c.total_points)).label("rank")
 
     q = select(
+        scores.c.id,
         scores.c.firstname,
         scores.c.lastname,
         scores.c.grade,
