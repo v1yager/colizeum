@@ -9,7 +9,7 @@ def to_lower(fullname):
 
 
 # Check is participant without register
-async def is_participant(session: AsyncSession, firstname, lastname: str) -> bool:
+async def is_participant(session: AsyncSession, firstname: str, lastname: str) -> bool:
     query = select(
         Participant.firstname,
         Participant.lastname).select_from(Participant)

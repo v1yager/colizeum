@@ -1,5 +1,5 @@
 import enum
-from datetime import date, datetime
+from datetime import date
 
 from sqlalchemy import (
     CheckConstraint,
@@ -15,25 +15,25 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 # Формат проведения
 class AwardParticipationFormat(enum.Enum):
-    PERSONAL = 0 # Индивидуальный
-    TEAM = 1 # Командный
-    CERTIFICATE = 2 # Сертификат
+    PERSONAL = "Индивидуальный"
+    TEAM = "Командный"
+    CERTIFICATE = "Сертификат"
 
 # Масштаб достижения
 class AwardLevel(enum.Enum):
-    RUSSIAN = 0 # Всероссийский
-    INTERREGIONAL = 1 # Межрегиональный
-    REGIONAL = 2 # Региональный
-    DISTRICT = 3 # Областной
-    MUNICIPAL = 4 # Муниципальный
-    SCHOOL = 5 # Школьный
+    RUSSIAN = "Всероссийский"
+    INTERREGIONAL = "Межрегиональный"
+    REGIONAL = "Региональный"
+    DISTRICT = "Областной"
+    MUNICIPAL = "Муниципальный"
+    SCHOOL = "Школьный"
 
 # Место
 class AwardPlace(enum.Enum):
-    GRANDPRIX = 0 # Гран-при
-    FIRST = 1 # Первое
-    SECOND = 2 # Второе
-    THIRD = 3 # Третье
+    GRANDPRIX = "Гран-при"
+    FIRST = "Первое"
+    SECOND ="Второе"
+    THIRD = "Третье"
 
 # Группы (по классам)
 class Groups(enum.Enum):
@@ -95,4 +95,4 @@ class Achievement(Base):
         index=True
     )
     event: Mapped[str] = mapped_column(String(100), nullable=False)
-    received_at: Mapped[datetime] = mapped_column(nullable=False)
+    received_at: Mapped[date] = mapped_column(nullable=False)

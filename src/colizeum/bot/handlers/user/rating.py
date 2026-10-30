@@ -15,7 +15,7 @@ async def command_rating_handler(message: Message):
 
 
 @router.callback_query(GroupsCallback.filter())
-async def junior_callback_query(callback: CallbackQuery, callback_data: GroupsCallback):
+async def rating_callback_query(callback: CallbackQuery, callback_data: GroupsCallback):
     await callback.answer()
 
     async with Session() as session:
