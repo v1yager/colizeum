@@ -1,10 +1,11 @@
 from aiogram import Router
 
-from . import new_achievements, start
+from . import get_users, new_achievements, start
 
 router = Router(name="admin")
 
 router.include_routers(
     start.router,
-    new_achievements.router
+    new_achievements.router,
+    get_users.router
 )
