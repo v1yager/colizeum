@@ -6,21 +6,37 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import CallbackQuery, Message, ReplyKeyboardRemove
 from aiogram_calendar import SimpleCalendar, SimpleCalendarCallback
-from colizeum.app.utils.save_achievement import get_award_type_id, is_create_participant, save_achievement
 from prettytable import PrettyTable
 
 from colizeum.app.db import Session
 from colizeum.app.models import AwardParticipationFormat
 from colizeum.app.utils.is_participant import is_participant
+from colizeum.app.utils.save_achievement import (
+    get_award_type_id,
+    is_create_participant,
+    save_achievement,
+)
 from colizeum.bot.filters.is_admin import IsAdmin
-from colizeum.bot.keyboards.confirm_kb import (
+from colizeum.bot.keyboards.new_achievements.confirm_kb import (
     ConfirmCallback,
     build_keyboard_for_confirm,
 )
-from colizeum.bot.keyboards.format_kb import FormatCallback, build_keyboard_for_format
-from colizeum.bot.keyboards.grade_kb import GradeCallback, build_keyboard_for_grade
-from colizeum.bot.keyboards.level_kb import LevelCallback, build_keyboard_for_level
-from colizeum.bot.keyboards.place_kb import PlaceCallback, build_keyboard_for_place
+from colizeum.bot.keyboards.new_achievements.format_kb import (
+    FormatCallback,
+    build_keyboard_for_format,
+)
+from colizeum.bot.keyboards.new_achievements.grade_kb import (
+    GradeCallback,
+    build_keyboard_for_grade,
+)
+from colizeum.bot.keyboards.new_achievements.level_kb import (
+    LevelCallback,
+    build_keyboard_for_level,
+)
+from colizeum.bot.keyboards.new_achievements.place_kb import (
+    PlaceCallback,
+    build_keyboard_for_place,
+)
 
 
 class NewAchievement(StatesGroup):
