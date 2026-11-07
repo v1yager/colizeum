@@ -29,7 +29,7 @@ data = [
 ]
 @pytest.mark.asyncio
 @pytest.mark.parametrize("data", data)
-async def test_sum_list(data):
+async def test_is_participant(data):
     async with Session() as session:
         check = await is_participant(session, data["firstname"], data["lastname"])
 

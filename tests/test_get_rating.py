@@ -33,7 +33,7 @@ data = [
 ]
 @pytest.mark.asyncio
 @pytest.mark.parametrize("data", data)
-async def test_sum_list(data):
+async def test_get_rating(data):
     async with Session() as session:
         rating = await get_rating(session, data["group"])
 

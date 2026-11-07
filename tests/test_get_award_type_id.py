@@ -41,7 +41,7 @@ data = [
 
 @pytest.mark.asyncio
 @pytest.mark.parametrize("data", data)
-async def test_sum_list(data):
+async def test_get_award_type_id(data):
     async with Session() as session:
         check = await get_award_type_id(session, data["format"], data["level"], data["place"])
 

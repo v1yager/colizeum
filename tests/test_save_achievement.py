@@ -15,19 +15,18 @@ data = [
             (1, "Ivan", "Ivanov", 11, 45, 1),
             (2, "Dima", "Dmitrov", 9, 35, 2),
             (4, "Sasha", "Petrov", 7, 25, 3),
-            # (1, "Ivan", "Ivanov", 11, 20, 3),
             (3, "Danil", "Semenov", 6, 15, 4)
         ]
     },
 ]
 @pytest.mark.asyncio
 @pytest.mark.parametrize("data", data)
-async def test_sum_list(data):
+async def test_save_achievement(data):
     async with Session() as session:
         await save_achievement(
             session,
             1,
-            1, # 25 points
+            1,
             "None",
             date(2026, 10, 10)
         )
