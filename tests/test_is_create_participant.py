@@ -30,7 +30,7 @@ data = [
 
 @pytest.mark.asyncio
 @pytest.mark.parametrize("data", data)
-async def test_sum_list(data):
+async def test_is_create_participant(data):
     async with Session() as session:
         check = await is_create_participant(session, data["fullname"], data["grade"])
 
