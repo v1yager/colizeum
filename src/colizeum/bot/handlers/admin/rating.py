@@ -7,10 +7,12 @@ from prettytable import PrettyTable
 
 from colizeum.app.db import Session
 from colizeum.app.models import Groups
-from colizeum.app.utils.rating import get_rating
+from colizeum.app.queries.rating import get_rating
+from colizeum.bot.filters.is_admin import IsAdmin
 
 router = Router()
-
+router.message.filter(IsAdmin())
+router.callback_query.filter(IsAdmin())
 
 class RatingGroupsCallback(CallbackData, prefix="rating_groups"):
     group: Groups

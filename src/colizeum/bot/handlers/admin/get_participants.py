@@ -11,7 +11,7 @@ from prettytable import PrettyTable
 
 from colizeum.app.db import Session
 from colizeum.app.models import Groups
-from colizeum.app.utils.users import get_users
+from colizeum.app.queries.participants import get_participants
 from colizeum.bot.filters.is_admin import IsAdmin
 
 router = Router()
@@ -43,7 +43,7 @@ async def get_users_callback(
     callback_data: GetUsersGroupsCallback
 ) -> None:
     async with Session() as session:
-        users = await get_users(session, callback_data.group)
+        users = await get_participants(session, callback_data.group)
 
     if not users:
         await callback.answer("Рейтинг пуст", show_alert=True)

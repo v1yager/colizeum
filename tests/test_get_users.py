@@ -4,7 +4,7 @@ from datetime import date
 import pytest
 
 from colizeum.app.db import Session
-from colizeum.app.utils.users import get_users
+from colizeum.app.queries.participants import get_participants
 
 expected = [
     (1, 'Ivan', 'Ivanov', 11, date(2026, 10, 27)),
@@ -16,6 +16,6 @@ expected = [
 @pytest.mark.asyncio()
 async def test_get_users():
     async with Session() as session:
-        users = await get_users(session)
+        users = await get_participants(session)
 
     assert users == expected

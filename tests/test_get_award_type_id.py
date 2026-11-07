@@ -1,11 +1,10 @@
 import asyncio
-from multiprocessing import get_all_start_methods
 
 import pytest
 
 from colizeum.app.db import Session
 from colizeum.app.models import AwardLevel, AwardParticipationFormat, AwardPlace
-from colizeum.app.utils.save_achievement import get_award_type_id
+from colizeum.app.queries.awards import get_award_type_id
 
 data = [
     {

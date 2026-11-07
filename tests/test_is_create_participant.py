@@ -3,7 +3,7 @@ import asyncio
 import pytest
 
 from colizeum.app.db import Session
-from colizeum.app.utils.save_achievement import is_create_participant
+from colizeum.app.queries.participants import is_create_participant
 
 data = [
     {

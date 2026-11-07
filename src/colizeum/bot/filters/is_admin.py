@@ -10,3 +10,11 @@ class IsAdmin(BaseFilter):
             return False
 
         return message.from_user.id in ADMINS
+
+
+class IsNotAdmin(BaseFilter):
+    async def __call__(self, message: Message) -> bool:
+        if message.from_user is None:
+            return False
+
+        return message.from_user.id not in ADMINS

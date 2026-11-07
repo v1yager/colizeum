@@ -10,12 +10,9 @@ from prettytable import PrettyTable
 
 from colizeum.app.db import Session
 from colizeum.app.models import AwardParticipationFormat
-from colizeum.app.utils.is_participant import is_participant
-from colizeum.app.utils.save_achievement import (
-    get_award_type_id,
-    is_create_participant,
-    save_achievement,
-)
+from colizeum.app.queries.achievements import save_achievement
+from colizeum.app.queries.awards import get_award_type_id
+from colizeum.app.queries.participants import is_create_participant, is_participant
 from colizeum.bot.filters.is_admin import IsAdmin
 from colizeum.bot.keyboards.new_achievements.confirm_kb import (
     ConfirmCallback,

@@ -4,7 +4,7 @@ import pytest
 
 from colizeum.app.db import Session
 from colizeum.app.models import Groups
-from colizeum.app.utils.rating import get_rating
+from colizeum.app.queries.rating import get_rating
 
 data = [
     {
