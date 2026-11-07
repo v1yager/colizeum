@@ -252,12 +252,20 @@ async def capture_confirm(
                 data.get("grade", None)
             )
 
-            award_type_id = await get_award_type_id(
-                session,
-                data["format"],
-                data["level"],
-                data["place"]
-            )
+            if data["format"] == AwardParticipationFormat.CERTIFICATE:
+                award_type_id = await get_award_type_id(
+                    session,
+                    data["format"],
+                    None,
+                    None
+                )
+            else:
+                award_type_id = await get_award_type_id(
+                    session,
+                    data["format"],
+                    data["level"],
+                    data["place"]
+                )
 
             if award_type_id is not None and participant_id is not None:
                 await save_achievement(

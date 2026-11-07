@@ -12,8 +12,8 @@ from colizeum.app.models import (
 async def get_award_type_id(
     session: AsyncSession,
     format: AwardParticipationFormat,
-    level: AwardLevel,
-    place: AwardPlace
+    level: AwardLevel | None,
+    place: AwardPlace | None
 ) -> int | None:
     q = select(AwardType.id).where(
         AwardType.format == format,

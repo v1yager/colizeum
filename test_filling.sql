@@ -7,10 +7,10 @@ INSERT INTO participants (firstname, lastname, grade, registered_at) VALUES ('Da
 INSERT INTO participants (firstname, lastname, grade, registered_at) VALUES ('Sasha', 'Petrov', 7, '10-27-2026');
 
 -- Award
-INSERT INTO award_types (format, level, place, points) VALUES ('PERSONAL', 'SCHOOL', 'GRANDPRIX', '25');
-INSERT INTO award_types (format, level, place, points) VALUES ('TEAM', 'DISTRICT', 'FIRST', '15');
-INSERT INTO award_types (format, level, place, points) VALUES ('PERSONAL', 'REGIONAL', 'SECOND', '35');
-INSERT INTO award_types (format, level, place, points) VALUES ('TEAM', 'INTERREGIONAL', 'THIRD', '20');
+INSERT INTO award_types (format, level, place, points) VALUES ('PERSONAL', 'SCHOOL', 'GRANDPRIX', '25') ON CONFLICT DO NOTHING;
+INSERT INTO award_types (format, level, place, points) VALUES ('TEAM', 'DISTRICT', 'FIRST', '15') ON CONFLICT DO NOTHING;
+INSERT INTO award_types (format, level, place, points) VALUES ('PERSONAL', 'REGIONAL', 'SECOND', '35') ON CONFLICT DO NOTHING;
+INSERT INTO award_types (format, level, place, points) VALUES ('TEAM', 'INTERREGIONAL', 'THIRD', '20') ON CONFLICT DO NOTHING;
 
 -- ACHIEVEMENTS
 INSERT INTO achievements (participant_id, award_type_id, event, received_at) VALUES (4, 1, 'None', '10-27-2026');
