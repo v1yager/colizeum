@@ -1,12 +1,12 @@
 import asyncio
 from datetime import date
 
-from colizeum.app.utils.save_achievement import save_achievement
 import pytest
 
 from colizeum.app.db import Session
 from colizeum.app.models import Groups
-from colizeum.app.utils.rating import get_rating
+from colizeum.app.queries.achievements import save_achievement
+from colizeum.app.queries.rating import get_rating
 
 data = [
     {
