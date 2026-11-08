@@ -17,8 +17,8 @@ dependencies = [
     "sqlalchemy[asyncio]>=2.1.6",
 ]
 
-[project.scripts]
-colizeum = "colizeum:main"
+# [project.scripts]
+# colizeum = "colizeum:main"
 
 [build-system]
 requires = ["uv_build>=0.13.5,<0.14.0"]

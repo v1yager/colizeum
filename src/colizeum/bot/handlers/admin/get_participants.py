@@ -46,7 +46,7 @@ async def get_users_callback(
         users = await get_participants(session, callback_data.group)
 
     if not users:
-        await callback.answer("Рейтинг пуст", show_alert=True)
+        await callback.answer("Участников нет", show_alert=True)
         return
 
     table = PrettyTable()
