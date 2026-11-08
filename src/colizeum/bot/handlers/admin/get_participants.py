@@ -32,7 +32,7 @@ def build_keyboard_for_groups():
     return builder.as_markup()
 
 
-@router.message(Command("get_users"))
+@router.message(Command("get_participants"))
 async def get_users_handler(message: Message) -> None:
     await message.answer("Выберите классы:", reply_markup=build_keyboard_for_groups())
 
