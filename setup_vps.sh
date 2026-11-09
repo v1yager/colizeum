@@ -13,11 +13,6 @@ if [[ -z "$REPO_URL" ]]; then
     exit 1
 fi
 
-if [[ "$EUID" -eq 0 ]]; then
-    echo "Run this script as a regular user with sudo privileges."
-    exit 1
-fi
-
 if [[ ! -f /etc/os-release ]]; then
     echo "Cannot identify operating system."
     exit 1
