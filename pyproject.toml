@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "krypt1n", email = "krypt1n@proton.me" }
 ]
-requires-python = ">=3.15"
+requires-python = ">=3.13"
 dependencies = [
     "aiogram>=3.31.0",
     "aiogram-calendar>=0.6.0",
