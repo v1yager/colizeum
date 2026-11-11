@@ -11,4 +11,4 @@ router.callback_query.filter(IsAdmin())
 @router.message(CommandStart())
 async def start_handler(message: Message) -> None:
     if message.from_user:
-        await message.answer(f"Привет, {message.from_user.username}!")
+        await message.answer(f"Привет, {message.from_user.username}!\n\n<i>/help – просмотреть все команды</i>")
